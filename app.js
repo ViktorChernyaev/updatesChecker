@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({ silent: process.env.NODE_ENV === "production" });
 
 const TelegramBot = require("node-telegram-bot-api");
 const axios = require("axios");
