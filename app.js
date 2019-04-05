@@ -8,9 +8,4 @@ const { TELEGRAM_BOT_TOKEN } = process.env;
 
 const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: true });
 
-bot.on(/\/echo (.+)/, (msg, match) => {
-  const chatId = msg.chat.id;
-  const resp = match[1];
-  console.log(322)
-  bot.sendMessage(chatId, resp);
-})
+bot.sendMessage(131075441, "check");
