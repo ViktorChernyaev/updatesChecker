@@ -1,6 +1,6 @@
 const TelegramBot = require("node-telegram-bot-api");
 const axios = require("axios");
-const cron = require("node-cron");
+// const cron = require("node-cron");
 
 const { TELEGRAM_BOT_TOKEN, TELEGRAM_GROUP_ID, GITHUB_REPO_NAME, CRON_SCHEDULE } = process.env;
 
@@ -16,5 +16,6 @@ function getStarsCount() {
     .then(({ data }) => data.stargazers_count)
     .catch(e => console.log(e));
 }
+getStarsCount().then(sendCountToGroup)
 
-cron.schedule(CRON_SCHEDULE, () => getStarsCount().then(sendCountToGroup));
+// cron.schedule(CRON_SCHEDULE, () => getStarsCount().then(sendCountToGroup));
