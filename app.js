@@ -1,3 +1,4 @@
+require("dotenv").config();
 const TelegramBot = require("node-telegram-bot-api");
 const axios = require("axios");
 const cron = require("node-cron");
@@ -16,6 +17,5 @@ function getStarsCount() {
     .then(({ data }) => data.stargazers_count)
     .catch(e => console.log(e));
 }
-getStarsCount().then(sendCountToGroup)
 
 cron.schedule(CRON_SCHEDULE, () => getStarsCount().then(sendCountToGroup));
